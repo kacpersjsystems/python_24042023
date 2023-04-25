@@ -30,7 +30,7 @@ if control_sum % 10 == 0:
 else:
     print('Pesel jest niepoprawny')
 
-# 13:08
+
 
 
 
