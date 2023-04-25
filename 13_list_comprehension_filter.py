@@ -14,6 +14,14 @@ starts_with = 'G'
 #         filtered_cities.append(city)
 #
 # print(filtered_cities)
-
+                #   Co                        Filtrowanie
+                # w liście                   danych
 filtered_cities = [city for city in cities if city.startswith(starts_with)]
 print(filtered_cities)
+
+
+# new_list = [ city  if city.startswith(starts_with) for city in cities]
+# [f'Pani {name}' if name.endswith('a') else f'Pan {name}' for name in names]
+
+
+#[ CO W NOWEJ LIŚCIE  for element in lista FILTROWANIE]

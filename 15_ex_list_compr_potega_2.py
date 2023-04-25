@@ -1,0 +1,1 @@
+# Korzystając z list składanych wygeneruj listę zawierajaca 10 kolejnych poteg 2
