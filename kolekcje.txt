@@ -1,0 +1,23 @@
+Kolekcje
+Tupla
+  - zamiana innego typu na tuple odbywa się za pomocą tuple()
+  - podczas deklaracji możemy używać nawiasów okrągłych
+    a = 2,3
+    a = (2,3)
+  - indeksowane cyframi od 0...(len(x)-1)
+  - są niemutowalne tzn. wartości tupli się nie zmieniają
+  - tupla jednoelementowa musi mieć przecinek na końcu
+
+Lista
+  - zamiana innego typu na listę odbywa się za pomocą funkcji list()
+  - podczas deklaracji musimy używać nawiasów kwadratowych
+    a = [2, 3]
+  - indeksowane cyframi od 0...(len(x)-1)
+  - listy są mutowalne (możemy je zmieniać)
+    - Dodaje nowe elementy na końcu
+      a.append(4)
+      a.append(5)
+      a = [2, 3, 4, 5]
+    - Mogę podmieniać elementy znajdujące się na konkretnym indeksie
+      a[0] = 5
+      a = [5, 3, 4, 5]

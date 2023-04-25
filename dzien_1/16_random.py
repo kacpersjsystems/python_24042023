@@ -1,0 +1,7 @@
+# pseudo-losowa
+# losowa
+
+from random import randint
+
+print(randint(1, 100))
+
