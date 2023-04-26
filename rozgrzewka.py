@@ -3,13 +3,28 @@
 #
 # Input: Ala ma kota.
 # Output: atokamalA
-#
+
+# sentence = input('Podaj zdanie: ')
+sentence = 'Ala ma kota.'
+for char in '. ,':
+    sentence = sentence.replace(char, '')
+
+print(sentence[::-1])
+
 #
 # 1. Z podanej listy imion o różnej długości wyświetl tylko te które są dłuższe niż 5 znaków.
 # Długość imienia sprawdź funkcją len()
 #   * Zmień ten program do postaci listy składanej (list comprehension)
 #   * Za pomocą .title() upewnij się, że zawsze zaczynamy z wielkiej litery
-#
+
+names = ['asia', 'Kasia', 'zofia', 'Adelajda', 'michalina']
+longer_names = []
+for name in names:
+    if len(name) > 5:
+        longer_names.append(name.title())
+
+longer_names = [name.title() for name in names if len(name) > 5]
+print(longer_names)
 #
 # 2. “12 kilogramów jabłek, 10 kilogramów gruszek, 20 kilogramów śliwek”
 # policzyć ile łącznie razem ważą zakupione produktu. (spacje przed kilogramami muszą być :)
