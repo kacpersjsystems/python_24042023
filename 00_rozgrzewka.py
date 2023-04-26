@@ -45,14 +45,19 @@ print(sum([int(word) for word in sentence.split(' ') if word.isnumeric()]))
 # tu słowa, które wyglądają jak liczby zamieniamy na liczby, a pozostałe na 0
 print(sum([int(word) if word.isnumeric() else 0 for word in sentence.split(' ')]))
 
-
 # 3. Napisz program, który odbierze od użytkownika liczbę całkowitą dodatnią (naturalna),
 # a następnie wyświetli na ekranie wszystkie liczby
 # parzyste od 2 do tej liczby. Wyświetl wszystkie te liczby oddzielone przecinkami.
 # a) załaduj wszystkie te liczby do listy
 # b) połącz elementy listy przecinkami ','.join(lista)
 
+value = 71
+# list comprehension
+list_of_strings = [str(x) for x in list(range(2, value, 2))]
 
+# funkcja map **
+list_of_strings = map(str, list(range(2, value, 2)))
+print(','.join(list_of_strings))
 
 # 4. Napisz program, w którym odbierzesz od użytkownika imiona oraz nazwiska rozdzielone przecinkami,
 # w odpowiedzi powinny wyświetlić się poprawnie zapisane imiona bez powtórzeń posortowaną w kolejności Z-A.
@@ -60,6 +65,18 @@ print(sum([int(word) if word.isnumeric() else 0 for word in sentence.split(' ')]
 # OUT: Zbigniew, Adam
 #
 # a) Rozbij imiona i nazwiska po przecinkach
+#    funkcją strip możesz pozbyć się spacji przed imieniem
 # b) Rozbij każde imie i nazwisko po spacji
+#    wypakuj listę do dwóch zmiennych
 # c) Dodaj imię do nowej listy jeżeli jeszcze go tam nie było
+#    if name not in names
 # d) Wyświetl odwrotnie posortowaną listę sorted(lista, reverse=True)
+
+sentence = 'Adam Mickiewicz, Adam Asnyk, Zbigniew Nienacki'
+filtered_names = []
+for person in sentence.split(','):
+    first_name, last_name = person.strip().split(' ')
+    if first_name not in filtered_names:
+        filtered_names.append(first_name)
+
+print(sorted(filtered_names, reverse=True))
