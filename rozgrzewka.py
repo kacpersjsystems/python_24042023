@@ -30,14 +30,30 @@ print(longer_names)
 # policzyć ile łącznie razem ważą zakupione produktu. (spacje przed kilogramami muszą być :)
 # a) split i rozbij wyrażenie po spacjach
 # b) iteruj po każdym wyrażeniu i dodawaj do siebie te, które wyglądają jak liczby .isnumeric()
-#
-#
-# 3. Napisz program, który odbierze od użytkownika liczbę całkowitą, a następnie wyświetli na ekranie wszystkie liczby
+
+sentence = '12 kilogramów jabłek, 10 kilogramów gruszek, 20 kilogramów śliwek'
+total = 0
+for word in sentence.split(' '):
+    if word.isnumeric():
+        total += int(word)
+
+print(total)
+print('---')
+# tu filtrujemy słowa, które wyglądają jak liczby by Dorota
+print(sum([int(word) for word in sentence.split(' ') if word.isnumeric()]))
+
+# tu słowa, które wyglądają jak liczby zamieniamy na liczby, a pozostałe na 0
+print(sum([int(word) if word.isnumeric() else 0 for word in sentence.split(' ')]))
+
+
+# 3. Napisz program, który odbierze od użytkownika liczbę całkowitą dodatnią (naturalna),
+# a następnie wyświetli na ekranie wszystkie liczby
 # parzyste od 2 do tej liczby. Wyświetl wszystkie te liczby oddzielone przecinkami.
 # a) załaduj wszystkie te liczby do listy
 # b) połącz elementy listy przecinkami ','.join(lista)
-#
-#
+
+
+
 # 4. Napisz program, w którym odbierzesz od użytkownika imiona oraz nazwiska rozdzielone przecinkami,
 # w odpowiedzi powinny wyświetlić się poprawnie zapisane imiona bez powtórzeń posortowaną w kolejności Z-A.
 # IN: Adam Mickiewicz, Adam Asnyk, Zbigniew Nienacki
