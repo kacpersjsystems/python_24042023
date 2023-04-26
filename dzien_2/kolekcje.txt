@@ -24,6 +24,30 @@ Lista
       a = [5, 3, 4, 5]
    - kolejność elementów jest zachowana
 
+Słowniki (dictionary - dict)
+  - indeky zostały zamienione na klucze
+    - string
+    - tupla
+    - lista
+    - int
+  - słownik to kolekcja par klucz i wartość
+  - słowniki są mutowalne, możemy dodawać do nich elementy
+    nazwa_słownika['nowyklucz'] = 'wartość'
+
+    i tak samo mozemy edytować elementy
+    nazwa_słownika['staryklucz'] = 'wartość'
+
+ - pobieranie wartości ze słownika odbywa się tak jak przypisywanie ich
+   print(nazwa_słownika['nowyklucz']) jeżeli klucz nie istnieje dostajemy wyjątek
+
+   drugi sposób (jeśli wartość nie istnieje)
+   nazwa_słownika.get('nowyklucz') zwróci None
+   nazwa_słownika.get('nowyklucz', '---') zwróci ---
+
+ - iterowanie(przechodzenie po słowniku) też wygląda inaczej
+   patrz: 07_for_dict.py
+
+
 Set (Zbiór)
   - zamiana innego typu na listę odbywa się za pomocą funkcji set()
   - podczas deklaracji musimy używać nawiasów klamrowych
