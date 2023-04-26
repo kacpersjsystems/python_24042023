@@ -1,3 +1,4 @@
+import argparse
 from os import walk, path, makedirs
 from PIL import Image
 from resizeimage import resizeimage
@@ -20,14 +21,17 @@ def resize_image(source: str, target: str):
             cover.save(target, image.format)
 
 
+program = argparse.ArgumentParser(prog='Scale images in specific directory')
+program.add_argument('--source', required=True)
+program.add_argument('--destination', required=True)
+args = program.parse_args()
 
 
+if not path.exists(args.destination):
+    makedirs(args.destination)
 
-if not path.exists('thumbnails'):
-    makedirs('thumbnails')
-
-for photo in find_photos_in_dir('photos'):
-    thumbnail = photo.replace('photos', 'thumbnails')
+for photo in find_photos_in_dir(args.source):
+    thumbnail = photo.replace(args.source, args.destination)
     print(photo, ' => ', thumbnail)
     resize_image(photo, thumbnail)
 
