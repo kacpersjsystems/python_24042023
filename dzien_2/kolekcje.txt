@@ -7,6 +7,7 @@ Tupla
   - indeksowane cyframi od 0...(len(x)-1)
   - są niemutowalne tzn. wartości tupli się nie zmieniają
   - tupla jednoelementowa musi mieć przecinek na końcu
+  - kolejność elementów jest zachowana
 
 Lista
   - zamiana innego typu na listę odbywa się za pomocą funkcji list()
@@ -21,3 +22,28 @@ Lista
     - Mogę podmieniać elementy znajdujące się na konkretnym indeksie
       a[0] = 5
       a = [5, 3, 4, 5]
+   - kolejność elementów jest zachowana
+
+Set (Zbiór)
+  - zamiana innego typu na listę odbywa się za pomocą funkcji set()
+  - podczas deklaracji musimy używać nawiasów klamrowych
+    a = {2, 3}
+    ale jeżeli chcemy stworzyć pusty zbiór to robimy to tak:
+    a = set() # To jest zbiór
+    a = {} # To jest słownik
+
+  - nie są indeksowane
+  - zbiory nie przechowują duplkatów
+        a = [2, 3, 3, 4]
+        b = set(a)
+        #b  {4, 2, 3}
+  - zbiory są mutowalne
+    a = set()
+    a.add(3)
+    a.add(5)
+
+  - Na zbiorach możemy wykonywać dodatkowe operacje
+    suma |
+    różnica -
+    iloczyn(część wspólna) & (ampersant)
+    różnica symetryczna   ^  (karetka)
