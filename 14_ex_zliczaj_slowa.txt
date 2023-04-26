@@ -1,0 +1,4 @@
+Python Software Foundation (PSF) – organizacja nienastawiona na zysk zajmująca się językiem programowania Python.
+Została założona 6 marca 2001. Misja fundacji polega na promowaniu, ochronie i rozwoju języka Python, a także wspieraniu międzynarodowej społeczności programistów piszących w tym języku. PSF jest odpowiedzialna za nadzorowanie procesów odbywających się w ramach tejże społeczności, takich jak rozwijanie jego głównej dystrybucji, zarządzanie prawami oraz pozyskiwanie funduszy.
+Python Software Foundation otrzymała w 2005 roku
+prestiżową nagrodę Horizon Award przyznawaną przez Computerworld za wkład w nowoczesne technologie.
