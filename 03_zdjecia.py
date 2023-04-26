@@ -1,4 +1,6 @@
 from os import walk, path
+from PIL import Image
+from resizeimage import resizeimage
 
 
 def find_photos_in_dir(target: str) -> list:
@@ -11,4 +13,12 @@ def find_photos_in_dir(target: str) -> list:
     return photos
 
 
-print(find_photos_in_dir('photos'))
+def resize_image(source: str, target: str):
+    with open(source, 'r+b') as f:
+        with Image.open(f) as image:
+            cover = resizeimage.resize_cover(image, [300, 300])
+            cover.save(target, image.format)
+
+
+for photo in find_photos_in_dir('photos'):
+    print(photo)
