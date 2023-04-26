@@ -4,11 +4,13 @@ from resizeimage import resizeimage
 
 
 def find_photos_in_dir(target: str) -> list:
-    EXTENSIONS = ('.jpg', '.jpeg', '.png')
-
+    EXTENSIONS = '.jpg', '.jpeg', '.png'
     photos = []
     for source, _, files in walk(target):
         photos.extend([path.join(source, file) for file in files if file.endswith(EXTENSIONS)])
+        # for file in files:
+        # if file.endswith(EXTENSIONS):
+        # print(path.join(source, file))
 
     return photos
 
@@ -20,14 +22,12 @@ def resize_image(source: str, target: str):
             cover.save(target, image.format)
 
 
+TARGET_DIRECTORY = 'thumbanils'
 
-
-
-if not path.exists('thumbnails'):
-    makedirs('thumbnails')
+if not path.exists(TARGET_DIRECTORY):
+    makedirs(TARGET_DIRECTORY)
 
 for photo in find_photos_in_dir('photos'):
-    thumbnail = photo.replace('photos', 'thumbnails')
-    print(photo, ' => ', thumbnail)
+    thumbnail = photo.replace('photos', TARGET_DIRECTORY)
+    print(photo, ' => ', TARGET_DIRECTORY)
     resize_image(photo, thumbnail)
-
