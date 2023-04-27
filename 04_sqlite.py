@@ -32,7 +32,9 @@ class Screen:
 
     def complete(self, args):
         print('Zrobione!')
-        print(args)
+        cursor = self.connection.cursor()
+        cursor.execute('DELETE FROM events WHERE id=?', (args.id,))
+        self.connection.commit()
 
 
 def parse_args():
