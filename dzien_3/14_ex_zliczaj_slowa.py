@@ -28,4 +28,12 @@ with open('14_ex_zliczaj_slowa.txt', encoding='utf8') as file:
         for word in line.split(' '):
             counter[word] = counter.get(word, 0) + 1
 
-print(counter)
+
+def sort_dict_by_value(element):
+    return counter[element]
+
+# funkcja anonimowa (nie ma nazwy) lambda element: counter[element]
+
+
+for key in sorted(counter, key=lambda element: counter[element]):
+    print(key, counter[key])
