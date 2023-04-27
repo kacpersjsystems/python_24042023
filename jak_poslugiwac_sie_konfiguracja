@@ -1,0 +1,7 @@
+1. Dane konfiguracyjne trzymamy w zmiennych środowiskowych
+2. Zmienne środowiskowe mogą pochodzić z:
+   - system operacyjny
+   - plik .env (NIE KOMITUJEMY GO!)
+   - przekazywanie w linii poleceń (Pod windowsem nie działa)
+     ENV=1 python program.py
+
