@@ -17,13 +17,16 @@ class Screen:
         self.connection = connection
 
     def add(self, args):
-        pass
+        print('Dodaje nowy')
+        print(args)
 
     def index(self, args):
-        pass
+        print('Wypisuje wszystkie')
+        print(args)
 
     def complete(self, args):
-        pass
+        print('Zrobione!')
+        print(args)
 
 
 def parse_args():
@@ -54,11 +57,12 @@ with sqlite3.connect('events.db') as connection:
         case 'complete': screen.complete(args)
         case _: raise ValueError('Unknown operation')
 
-# python program.py --operation add --name Wyjazd --event_at 2023-04-28
+
+# python 04_sqlite.py --operation add --name Wyjazd --event_at 2023-04-28
 # INSERT INTO events(name, event_at) VALUES('Wyjazd', '2023-04-28')
 
-# python program.py --operation index
+# python 04_sqlite.py --operation index
 # SELECT id, name, event_at FROM events ORDER BY event_at ASC
 
-# python program.py --operation complete --id 1
+# python 04_sqlite.py --operation complete --id 1
 # DELETE FROM events WHERE id=1
