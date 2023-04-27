@@ -8,8 +8,9 @@
 #      name
 #      event_at
 
-import argparse
 import sqlite3
+
+from utils import parse_args
 
 
 class Screen:
@@ -35,16 +36,6 @@ class Screen:
         cursor = self.connection.cursor()
         cursor.execute('DELETE FROM events WHERE id=?', (args.id,))
         self.connection.commit()
-
-
-def parse_args():
-    args = argparse.ArgumentParser()
-    args.add_argument('--operation', required=True)
-    args.add_argument('--name')
-    args.add_argument('--event_at')
-    args.add_argument('--id', type=int)
-    return args.parse_args()
-
 
 args = parse_args()
 
