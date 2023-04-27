@@ -18,11 +18,17 @@ class Screen:
 
     def add(self, args):
         print('Dodaje nowy')
-        print(args)
+        print(args.name, args.event_at)
+        cursor = self.connection.cursor()
+        cursor.execute('INSERT INTO events(name, event_at) VALUES(?, ?)', (args.name, args.event_at))
+        self.connection.commit()
 
     def index(self, args):
         print('Wypisuje wszystkie')
-        print(args)
+        cursor = self.connection.cursor()
+        data = cursor.execute('SELECT id, name, event_at FROM events ORDER BY event_at ASC')
+        for id, name, event_at in data:
+            print(id, name, event_at)
 
     def complete(self, args):
         print('Zrobione!')
@@ -34,7 +40,7 @@ def parse_args():
     args.add_argument('--operation', required=True)
     args.add_argument('--name')
     args.add_argument('--event_at')
-    args.add_argument('--id')
+    args.add_argument('--id', type=int)
     return args.parse_args()
 
 
