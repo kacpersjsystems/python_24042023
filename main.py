@@ -1,8 +1,8 @@
 from dotenv import load_dotenv
-from flask import Flask, render_template, abort
+from flask import Flask, render_template, abort, request
 import requests
 
-from dao import get_products, get_product_by_id
+from dao.products import get_products, get_product_by_id
 
 application = Flask(__name__)
 load_dotenv()
@@ -47,6 +47,8 @@ def single_product(product_id: int):
         })
 
 
-@application.route('/produkty/<int:product_id>/wydarzenia')
+@application.route('/produkty/<int:product_id>/wydarzenia', methods=['GET', 'POST'])
 def create_event(product_id):
+    print(request.form['name'])
+    print(request.form['event_at'])
     return render_template('create_event.html', product_id=product_id)
