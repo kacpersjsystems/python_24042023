@@ -19,9 +19,9 @@
             </ul>
             <div class="card-body">
                 {% if units_in_stock > 0 %}
-                <a href="{{ url_for('single_product', product_id=product_id) }}" class="card-link">Szczegóły</a>
+                    <a href="{{ url_for('single_product', product_id=product_id) }}" class="card-link">Szczegóły</a>
                 {% else %}
-                produkt niedostępny
+                    produkt niedostępny
                 {% endif %}
             </div>
         </div>
@@ -29,5 +29,3 @@
     {% endfor %}
 </div>
 {% endblock %}
-
-#13:03

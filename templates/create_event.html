@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block content %}
+    <form method="POST" action="{{ url_for('create_event', product_id=product_id) }}">
+        <div>
+            <label for="name">Nazwa</label>
+            <input type="text" name="name" id="name">
+        </div>
+        <div>
+            <label for="event_at">Data wydarzenia:</label>
+            <input type="datetime-local" name="event_at" id="event_at">
+        </div>
+        <input type="submit" value="Dodaj">
+    </form>
+{% endblock %}

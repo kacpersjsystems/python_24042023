@@ -1,5 +1,5 @@
 from dotenv import load_dotenv
-from flask import Flask, render_template
+from flask import Flask, render_template, abort
 import requests
 
 from dao import get_products, get_product_by_id
@@ -15,8 +15,7 @@ def index():
 
 @application.route('/hello/<first_name>')
 def hello(first_name):
-    # return f'Dzień dobry! Cześć {first_name.title()}!'
-
+    # return f'Dzien dobry! Czesc {first_name}'
     return render_template('hello.html', first_name=first_name)
 
 
@@ -33,4 +32,21 @@ def products():
 
 @application.route('/produkty/<int:product_id>')
 def single_product(product_id: int):
-    return render_template('single_product.html', product=get_product_by_id(product_id))
+    product = get_product_by_id(product_id)
+    if product is None:
+        return abort(404)
+    else:
+        product_id, product_name, unit_price, units_in_stock, supplier_name, category_name = product
+        return render_template('single_product.html', product={
+            'product_id': product_id,
+            'product_name': product_name,
+            'unit_price': unit_price,
+            'units_in_stock': units_in_stock,
+            'supplier_name': supplier_name,
+            'category_name': category_name,
+        })
+
+
+@application.route('/produkty/<int:product_id>/wydarzenia')
+def create_event(product_id):
+    return render_template('create_event.html', product_id=product_id)

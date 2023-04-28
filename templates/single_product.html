@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block title %}Produkt {{ product.get('product_name') }}{% endblock %}
+
+{% block active_products %} active{% endblock %}
+
+{% block content %}
+    {{ product.get('product_id') }} <br>
+    {{ product.get('product_name') }} <br>
+    {{ product.get('unit_price') }} <br>
+    {{ product.get('units_in_stock') }} <br>
+    {{ product.get('supplier_name') }} <br>
+    {{ product.get('category_name') }} <br>
+{% endblock %}

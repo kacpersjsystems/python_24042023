@@ -8,7 +8,7 @@ def get_product_by_id(product_id: int):
         cursor = connection.cursor()
         cursor.execute(_build_query(product_id))
 
-    return cursor.fetchone()
+        return cursor.fetchone()
 
 
 def get_products():
@@ -17,7 +17,7 @@ def get_products():
         cursor = connection.cursor()
         cursor.execute(_build_query())
 
-    return cursor.fetchall()
+        return cursor.fetchall()
 
 
 def _build_query(product_id=None) -> str:
