@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>Stacja</th>
+                <th>Temperatura</th>
+                <th>Wilotność</th>
+                <th>Suma opadu</th>
+                <th>Ciśnienie</th>
+            </tr>
+        </thead>
+        {% for station in stations %}
+            {{ station.stacja }}
+        {% endfor %}
+    </table>
+</body>
+</html>
