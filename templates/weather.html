@@ -1,23 +1,25 @@
-
-<table class="table table-striped-columns">
-    <thead>
-    <tr>
-        <th>Stacja</th>
-        <th>Temperatura</th>
-        <th>Wilotność</th>
-        <th>Suma opadu</th>
-        <th>Ciśnienie</th>
-    </tr>
-    </thead>
-    <tbody>
-        {% for station in stations %}
+{% extends "layout.html" %}
+{% block content %}
+    <table class="table table-striped-columns">
+        <thead>
         <tr>
-            <td>{{ station.stacja }}</td>
-            <td>{{ station.temperatura }}</td>
-            <td>{{ station.wilgotnosc_wzgledna }}</td>
-            <td>{{ station.suma_opadu }}</td>
-            <td>{{ station.cisnienie }}</td>
-        <tr>
-        {% endfor %}
-    </tbody>
-</table>
+            <th>Stacja</th>
+            <th>Temperatura</th>
+            <th>Wilotność</th>
+            <th>Suma opadu</th>
+            <th>Ciśnienie</th>
+        </tr>
+        </thead>
+        <tbody>
+            {% for station in stations %}
+            <tr>
+                <td>{{ station.stacja }}</td>
+                <td>{{ station.temperatura }}</td>
+                <td>{{ station.wilgotnosc_wzgledna }}</td>
+                <td>{{ station.suma_opadu }}</td>
+                <td>{{ station.cisnienie }}</td>
+            <tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
