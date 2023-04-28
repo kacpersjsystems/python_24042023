@@ -5,19 +5,27 @@
     <title>Title</title>
 </head>
 <body>
-    <table>
-        <thead>
-            <tr>
-                <th>Stacja</th>
-                <th>Temperatura</th>
-                <th>Wilotność</th>
-                <th>Suma opadu</th>
-                <th>Ciśnienie</th>
-            </tr>
-        </thead>
+<table>
+    <thead>
+    <tr>
+        <th>Stacja</th>
+        <th>Temperatura</th>
+        <th>Wilotność</th>
+        <th>Suma opadu</th>
+        <th>Ciśnienie</th>
+    </tr>
+    </thead>
+    <tbody>
         {% for station in stations %}
-            {{ station.stacja }}
+        <tr>
+            <td>{{ station.stacja }}</td>
+            <td>{{ station.temperatura }}</td>
+            <td>{{ station.wilgotnosc_wzgledna }}</td>
+            <td>{{ station.suma_opadu }}</td>
+            <td>{{ station.cisnienie }}</td>
+        <tr>
         {% endfor %}
-    </table>
+    </tbody>
+</table>
 </body>
 </html>
