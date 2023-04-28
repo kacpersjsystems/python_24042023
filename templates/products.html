@@ -1,4 +1,9 @@
 {% extends "layout.html" %}
+
+{% block title %}Produkty{% endblock %}
+
+{% block active_products %} active{% endblock %}
+
 {% block content %}
 <div class="row row-cols-1 row-cols-md-4 g-4">
     {% for product_id, product_name, unit_price, units_in_stock, supplier_name, category_name in products %}
@@ -14,9 +19,9 @@
             </ul>
             <div class="card-body">
                 {% if units_in_stock > 0 %}
-                    <a href="#{{ product_id }}" class="card-link">Szczegóły</a>
+                <a href="{{ url_for('single_product', product_id=product_id) }}" class="card-link">Szczegóły</a>
                 {% else %}
-                    produkt niedostępny
+                produkt niedostępny
                 {% endif %}
             </div>
         </div>
@@ -24,3 +29,5 @@
     {% endfor %}
 </div>
 {% endblock %}
+
+#13:03

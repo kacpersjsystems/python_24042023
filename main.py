@@ -1,8 +1,8 @@
 from dotenv import load_dotenv
 from flask import Flask, render_template
-from os import getenv
-import psycopg2
 import requests
+
+from dao import get_products, get_product_by_id
 
 application = Flask(__name__)
 load_dotenv()
@@ -28,6 +28,9 @@ def weather():
 
 @application.route('/produkty')
 def products():
+    return render_template('products.html', products=get_products())
 
 
-        return render_template('products.html', products = cursor.fetchall())
+@application.route('/produkty/<int:product_id>')
+def single_product(product_id: int):
+    return render_template('single_product.html', product=get_product_by_id(product_id))
