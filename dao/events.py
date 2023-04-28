@@ -3,6 +3,8 @@ from os import getenv
 
 import psycopg2
 
+import flashmessage
+
 
 def get_events_by_product_id(product_id: int):
     with psycopg2.connect(host=getenv('DB_HOST'), database=getenv('DB_NAME'), user=getenv('DB_USER'),
@@ -22,4 +24,7 @@ def add_event_to_product_id(product_id: int, event_at: datetime, name: str):
             event_at.strftime('%Y-%m-%d %H:%M'),
             product_id
         ))
+
+        print('Dodaje flash message')
+        flashmessage.create('success', 'Event został dodany do produktu pomyślnie')
 

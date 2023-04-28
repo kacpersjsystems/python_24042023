@@ -4,6 +4,7 @@ from dotenv import load_dotenv
 from flask import Flask, render_template, abort, request, session, redirect, url_for
 import requests
 
+import flashmessage
 from dao.products import get_products, get_product_by_id
 from dao.events import get_events_by_product_id, add_event_to_product_id
 
@@ -58,7 +59,8 @@ def single_product(product_id: int):
 @application.route('/produkty/<int:product_id>/wydarzenia', methods=['GET', 'POST'])
 def create_event(product_id):
     events = get_events_by_product_id(product_id)
-
+    message = flashmessage.get('success')
+    print(message)
     if request.method == 'POST':
         add_event_to_product_id(
             product_id,
@@ -68,4 +70,9 @@ def create_event(product_id):
 
         return redirect(url_for('create_event', product_id=product_id))
 
-    return render_template('create_event.html', product_id=product_id, events=events)
+    return render_template(
+        'create_event.html',
+        product_id=product_id,
+        events=events,
+        message=message
+    )

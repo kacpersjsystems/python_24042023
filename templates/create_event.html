@@ -3,6 +3,12 @@
     {% for _, name, event_at, _ in events %}
         <div>{{ name }} - {{ event_at }}</div>
     {% endfor %}
+
+    {% if message|length > 0 %}
+        <div style="color:green">
+            {{ message }}
+        </div>
+    {% endif %}
     <form method="POST" action="{{ url_for('create_event', product_id=product_id) }}">
         <div>
             <label for="name">Nazwa</label>

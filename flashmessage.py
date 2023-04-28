@@ -3,16 +3,11 @@ from flask import session
 
 def create(name: str, value: str):
     if 'message' not in session:
-        session['message'] = {}
-
-    session['message'][name] = value
+        session['message'] = value
 
 
 def get(name: str) -> str:
-    if isinstance(session.get('message'), dict):
-        value = session['message'].get(name)
-        session['message'].pop(name, None)
+    value = session.get('message', '')
+    session.pop('message', '')
 
-        return value
-
-    return ''
+    return value
